@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 mt-2">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col" class="text-center">Order No</th>
+                    <th scope="col" class="text-center">OrderDate</th>
+                    <th scope="col" class="text-center">Mobile</th>
+                    <th scope="col" class="text-center">City</th>
+                    <th scope="col" class="text-center">Street</th>
+                    <th scope="col" class="text-center">Address</th>
+                    <th scope="col" class="text-center">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="text-center" *ngFor="let gkk of total; let i=index">
+
+                    <td>{{i+1}}</td>
+                    <td>{{gkk.order_date}}</td>
+                    <td>{{gkk.address.mobile}}</td>
+                    <td>{{gkk.address.city}}</td>
+                    <td>{{gkk.address.street}}</td>
+                    <td>{{gkk.address.address}}</td>
+                    <td>{{gkk.status}}</td>
+                    <td>
+                        <button type="button" class="btn btn-warning"  (click)="getitems(gkk.items)" >Get Items</button>
+                    </td>
+                 </tr>
+                  
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

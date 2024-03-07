@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>furniture</title>
+<style>
+  #ty{
+    color:aliceblue
+  
+  }
+ #dropdownMenuButton{
+  color:white;
+  margin-bottom: 2px;
+ }
+ #u{
+  cursor:pointer
+ }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <p>{{test1}}</p>
+      <nav class="navbar navbar-expand-sm bg-primary">
+        <ul class="navbar-nav">
+          <li>
+            
+          </li>
+          <li class="nav-item active">
+            
+          </li>
+          <li class="nav-item ">
+            <a id="ty" class="mt-2" routerLink="admin" >Adminhome</a>
+          </li>
+
+          <li class="nav-item">
+            <div class="dropdown" >
+              <button class="btn custom-dropdown"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                <img src="assets/images/login.jpg" width="30px" height="30px" alt="Cart Icon">
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                
+                <a class="dropdown-item" routerLink="customerorders">Orders</a>
+                <a class="dropdown-item" id="u" (click)="signout()">Signout</a>
+
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item active">
+            
+               <p>hello</p>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+
+
+</div>
+
+</body>
+</html>

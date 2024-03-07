@@ -1,0 +1,55 @@
+<html>
+    <head></head>
+    <body>
+        <div class="container">
+            <div class="row mt-3">
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-4">
+
+                    <form #re="ngForm" (ngSubmit)="categoryts(re.value);re.reset();">
+                        <label for="category">Category</label>
+                        <input type="text" class="form-control"  name="name" ngModel>
+
+                        <label for="img">select image:</label>
+                        <input type="file" name="img"  (change)="fileselected($event)" >
+
+                       <div class="text-center">
+                        <button type="submit" class="btn btn-primary mt-3">submit</button>
+                       </div>
+                  
+                    </form>
+                </div>       
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-12 mt-4">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col" class="text-center">No</th>
+                            <th scope="col" class="text-center">category image</th>
+                            <th scope="col" class="text-center">category name</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="text-center" *ngFor="let g of getcat.message; let i=index" >
+
+                            <td>{{i+1}}</td>
+                            <img src='data:{{a}};base64,{{g.image}}' width="50" height="50">
+                            <td>{{g.categoryname}}</td>
+                            
+                            <td><button type="button" (click)="delete(g.categoryname)" class="btn btn-danger">delete</button></td>
+                          </tr>
+                          
+                        </tbody>
+                      </table>
+
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

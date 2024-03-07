@@ -1,0 +1,106 @@
+<html>
+  <head>
+
+    <style>
+      .jk{
+        background-color:burlywood;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3  mt-3">
+          <form class="jk" #re="ngForm" (ngSubmit)="sendto(re.value);re.reset();">
+            <label for="fir">Mobile:</label>
+            <input type="tel" pattern ="[0-9]{10}" id ="mo" class="form-control"  name="mobil" ngModel>
+      
+            <label for="fir">Password:</label>
+            <input type="password" id ="pas" class="form-control"  name="passwor" ngModel>
+      
+      
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary mt-3">submit</button>
+          </div>
+      
+        </form>
+        </div>
+          <div class="col-md-9 mt-3">
+           <h1>Lakshmi Homeneeds</h1>
+           <div class="col-md-4">
+            <button type="button" class="btn btn-success mr-2 mt-3 mb-3 " data-toggle="modal" data-target="#myModal">signup</button>
+             <div id="google-btn">
+
+             </div>
+         
+
+            <div class="modal" id="myModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h4 class="modal-title">Modal Heading</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                    
+                    <form #ref="ngForm" (ngSubmit)="sendtots(ref.value);ref.reset();">
+  
+                      <label for="fir">First name:</label>
+                        <input type="text" id ="fir" class="form-control"  name="name" ngModel>
+                    
+                        <label for="fir">last name:</label>
+                        <input type="text" id ="last" class="form-control"  name="lastname" ngModel>
+                  
+                  
+                        <label for="fir">Mobile:</label>
+                        <input type="tel" id ="mob" pattern="[0-9]{10}" class="form-control"  name="mobile" ngModel>
+                  
+                        <label for="fir">Password:</label>
+                        <input type="password" id ="pass" class="form-control"  name="password" ngModel>
+                  
+                  
+                        <label for="em">email</label>
+                        <input type="email" id="em" class="form-control" name="email" ngModel>
+                      
+                  
+                      <div class="text-center">
+                        <button type="submit" class="btn btn-primary" >submit</button>
+                      </div>
+                  
+                    </form>
+                  </div>
+                  
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+             </div>
+          </div>      
+        
+      </div>
+  
+      <div class="row">
+        <div class="col-md-12">
+          <img src="/assets/images/mainhome.jpg" class="center" width="1200" height="500">
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+  
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <style>
+        #cartbutton{
+          
+          margin-right: 3px;
+          border:none;
+          background-color: transparent;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          
+        }
+        .cart-length {
+            
+        background-color: rgb(72, 16, 215);
+       color: white;
+        border-radius: 50%;
+       padding: 3px 6px;
+          margin-left: 6px;
+       font-size: 12px;
+       }
+
+       .cartbutton img {
+      width: 30px; /* Adjust size as needed */
+      margin-right: 5px; /* Adjust spacing as needed */
+      }
+      </style>
+    </head>
+    <body>
+        <div class="container">
+
+            <div class="row mt-3">
+                <div class="col-md-4">
+                    <h3>product details</h3>
+                    
+                </div>
+                
+                <div class="col-md-6">
+                    
+                </div> 
+
+                <div class="col-md-2">
+               
+                    <button type="button" id="cartbutton" routerLink="/cart">
+                        <span class="cart-length">{{cartlength}}</span>
+                        <img src="assets/images/cart1.png" width="30px" height="30px" alt="Cart Icon">
+                       
+                    </button> 
+                
+                </div>  
+
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-4">
+                    <div *ngFor= "let pj of s">
+                        <img src='data:{{a}};base64,{{pj.itemimage}}' width="250" height="250">
+                     </div>
+                </div>
+                <div class="col-md-4">
+                    
+                </div>
+            </div>
+            
+
+            <div class="row mt-3">
+                <div class="col-md-4">
+                  <h5>
+                    <div *ngFor ="let pj of s">
+                        <h2>Item Name:{{pj.itemname}}</h2>
+                   </div>
+                  </h5>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-4">
+                  <h5>
+                    <div *ngFor ="let pj of s">
+                        <h2>Price:{{pj.price|currency:'INR'}}</h2>
+                   </div>
+                  </h5>
+                </div>
+            </div>
+
+           <div class="row mt-4">
+             <div class="col-md-4">
+                <div *ngFor ="let pj of s">
+                    <h2>Description:{{pj.description}}</h2>
+               </div>
+             </div>
+           </div>
+           
+
+           <div class="row mt-4">
+            <div class="col-md-4">
+                <div *ngFor ="let pj of s">
+                    <h2>colour   :{{pj.colour}}</h2>
+               </div>
+            </div>
+           </div>
+
+           <div class="row mt-4">
+            <div class="col-md-4">
+                <div *ngFor ="let pj of s">
+                    <h2>Material  :{{pj.material}}</h2>
+               </div>
+            </div>
+           </div>
+          
+           <div class="row mt-4">
+            <div class="col-md-12">
+                <div *ngFor ="let pj of s">
+                <button  class="btn btn-primary" (click)="addtocart(pj)">Add to Cart</button>
+                </div>
+            </div>
+           </div>
+      
+        </div>
+    </body>
+</html>

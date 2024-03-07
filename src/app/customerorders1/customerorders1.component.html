@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col" class="text-center">No</th>
+                    <th scope="col" class="text-center">ItemName</th>
+                    <th scope="col" class="text-center">Item Image</th>
+                    <th scope="col" class="text-center">Quantity</th>
+                    <th scope="col" class="text-center">Price</th>
+                    <th scope="col" class="text-center">total Price</th>
+                    <th scope="col" class="text-center">Colour</th>
+                    <th scope="col" class="text-center">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="text-center" *ngFor="let gkk of p; let i=index">
+
+                    <td>{{i+1}}</td>
+                    <td>{{gkk.itemname}}</td>
+                    <td><img src='data:{{ay}};base64,{{gkk.itemimage}}' width="50" height="50"></td>
+                    <td>{{gkk.quantity}}</td>
+                    <td>{{gkk.price}}</td>
+                
+                    <td>{{ gkk.quantity > 1 ? gkk.updatedprice:gkk.price|currency:'INR'}}</td>
+                    <td>{{gkk.colour}}</td>
+                    <td>{{gkk.description}}</td>
+                  
+                    
+                    
+                 </tr>
+                  
+                </tbody>
+              </table>
+              <p>Total Price:{{total|currency:'INR'}}</p>
+        </div>
+    </div>
+</div>

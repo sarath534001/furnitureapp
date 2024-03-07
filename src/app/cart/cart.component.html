@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8"> 
+    <style>
+      #h{
+      color:red,
+
+
+      }
+    </style>
+    </head>
+    <body>
+        <div class="container">
+             <h1>{{df}}</h1>
+            <div class="row">
+              <div class="col-md-4">
+
+              </div>
+              <div class="col-md-4">
+
+              </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12">
+                  {{loginname}}
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col" class="text-center">No</th>
+                            <th scope="col" class="text-center">Item Name</th>
+                            <th scope="col" class="text-center">Item colour</th>
+                            <th scope="col" class="text-center">Material</th>
+                            <th scope="col" class="text-center">Item Image</th>
+                            <th scope="col" class="text-center">Quantity</th>
+                            <th scope="col" class="text-center">Price</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="text-center" *ngFor="let gkk of ap; let i=index">
+                            <td>{{i+1}}</td>
+                            <td>{{gkk.itemname}}</td>
+                            <td>{{gkk.colour}}</td>
+                            <td>{{gkk.material}}</td>
+                            <td><img src='data:{{a}};base64,{{gkk.itemimage}}' width="50" height="50"></td>
+                           <button class="mt-2" (click)="dec(gkk)">-</button>
+                            <span id="quantity" >{{gkk.quantity}}</span>
+                            
+                            <button class="mt-2"(click)="incrementQuantity(gkk)" >+</button>
+                            <td>{{ gkk.quantity > 1 ? gkk.updatedprice:gkk.price|currency:'INR'}}</td>
+                          
+                            <td><button type="button" (click)="deleteitemcart(gkk)" class="btn btn-danger">×</button></td>
+                            </tr>
+                          
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+              </div>
+              <div class="col-md-4">
+               <h4>Total Amount:{{gettotalprice()|currency:'INR'}} </h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+              </div>
+              <div class="col-md-4">
+                <button type="button" (click)="checkout()" routerLink="/placeorder" class="btn btn-primary">checkout</button>
+              </div>
+            </div>
+        </div>
+    </body>
+</html>

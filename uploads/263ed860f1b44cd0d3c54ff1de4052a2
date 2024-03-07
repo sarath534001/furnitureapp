@@ -1,0 +1,29 @@
+<div class="container">
+  <form #ref="ngForm" (ngSubmit)="sendtots(ref.value);ref.reset();">
+
+    
+    <label for="fir">First name:</label>
+      <input type="text" id ="fir" class="form-control"  name="name" ngModel>
+  
+      <label for="fir">last name:</label>
+      <input type="text" id ="last" class="form-control"  name="lastname" ngModel>
+
+
+      <label for="fir">Mobile:</label>
+      <input type="text" id ="mob" class="form-control"  name="mobile" ngModel>
+
+      <label for="fir">Password:</label>
+      <input type="password" id ="pass" class="form-control"  name="password" ngModel>
+
+
+      <label for="em">email</label>
+      <input type="email" id="em" class="form-control" name="email" ngModel>
+    
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">submit</button>
+    </div>
+
+  </form>
+</div>
+<router-outlet/>

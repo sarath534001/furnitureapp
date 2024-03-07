@@ -1,0 +1,185 @@
+<html>
+    <head>
+     <h1>Add Items</h1>
+     <style>
+      #s1{
+        
+          color:white;
+          cursor:pointer;
+        
+      }
+
+      
+     
+     </style>
+    </head>
+
+    <body>
+        <div class="container">
+         
+            <div class="row mt-4">
+                <div class="col-md-4">
+                   
+                </div>
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#additem">additem</button>
+                </div>
+               <div class="row-col-md-4">
+                <div class="modal" id="additem">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                      
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                          <h4 class="modal-title">ADD ITEM</h4>
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                               <form #ref="ngForm" (ngSubmit)="additem(ref.value);ref.reset();">   
+                                  <label for="category ">category name:</label>
+
+                                  <select name="name" class="form-control" [(ngModel)]="selectedCategory" (change)="updateFormInputs(selectedCategory)" id="cars">
+                                    <option *ngFor="let cat of jg">
+                                         {{cat.categoryname}}
+                                    </option>
+                                    
+                                  </select><br>
+                                  
+                                                                                   <!-- Mattress related input fields -->
+                                  <div *ngIf="selectedCategory === 'Mattress'">
+                                 <!-- Add mattress related input fields here -->
+                                 <label for="type">Material</label>
+                                 <input type="text"  class="form-control" name="typecategory" ngModel>
+
+                                 <label for="brand">Brand</label>
+                                 
+                                  
+                                 <label for="mattressdeta">Mattress Details</label>
+                                 <input type="text"  class="form-control" name="mattressdetails" ngModel>
+                                  
+                                 <label for="pric">Price</label>
+                                 <input type="text"  class="form-control" name="price" ngModel>
+
+                                 <label for="warran">Warranty</label>
+                                 <input type="text"  class="form-control" name="warranty" ngModel>
+
+                                 <label for="image mt-2">Brand Image</label><br>
+                                 <input type="file"  class="mb-3" (change)="addimage($event)"  name="brandimage"><br>
+
+                                 <label for="image mt-2">Mattress Image</label><br>
+                                 <input type="file"  class="mb-3" (change)="addimage($event)"  name="mattressimage"><br>
+
+                                  <label for="firmness">Firmness</label>
+                                 <input type="text" id="firmness" class="form-control" name="firmness" ngModel>
+
+                                  <label for="size">Size</label>
+                                 <input type="text" id="size" class="form-control" name="size" ngModel>
+                                  </div>
+                                   
+                                  <!--not equal to Mattress related input fields -->
+                                  <div *ngIf="selectedCategory !== 'Mattress'">
+                                  <label for="item name">Item name</label>
+                                  <input type= "text" id ="ite" class="form-control"  name="itemname" ngModel>
+                                   
+                                  <label for="category">category</label>
+                                  <input type= "text"  class="form-control"  name="category" ngModel>
+
+                                  <label for="image mt-2">Item image:</label><br>
+                                  <input type="file" id ="imag" class="mb-3" (change)="addimage($event)"  name="itemimg"><br>
+                            
+                                  <label for="fir mt-2 ">price: </label>
+                                  <input type= "number" id ="price" class="form-control"  name="price" ngModel>
+                            
+                                  <label for="des">Description</label>
+                                  <input type="text" id="description" class="form-control" name="description" ngModel>
+                                
+                                  <label for="colo">colour</label>
+                                  <input type="text" id="colo" class="form-control" name="colour" ngModel>
+
+                                  <label for="material">Material</label>
+                                  <input type="text" id="mat" class="form-control" name="material" ngModel>
+                                </div>
+
+                                <div class="text-center mt-3">
+                                  <button type="submit" class="btn btn-primary" >submit</button>
+                                </div>
+                            
+                              </form>
+
+
+                        </div>
+                        
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+            </div>
+             
+            <div class="row mt-3">
+              <div class="col-md-12">
+                <nav class="navbar navbar-expand-sm bg-primary">
+                  <!-- Links -->
+                  <div *ngFor="let k of jg">
+                  <ul class="navbar-nav">
+                    
+                    <li class="nav-item">
+                      <a id="s1" class="nav-link" (click)="categorymeth(k.categoryname)">{{k.categoryname|uppercase}}</a>
+                    </li>
+                  
+                  </ul>
+                 </div>
+                </nav>
+              </div>
+            </div>
+
+         <!--  <div class="row">
+            <div class="col-md-12 mt-5">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col" class="text-center">No</th>
+                    <th scope="col" class="text-center">Item Name</th>
+                    <th scope="col" class="text-center">Item Image</th>
+                    <th scope="col" class="text-center">Price</th>
+                    <th scope="col" class="text-center">Description</th>
+                    <th scope="col" class="text-center">Material</th>
+                    <th scope="col" class="text-center">Colour</th>
+                   
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="text-center" *ngFor="let gkk of allite; let i=index" >
+                    <td>{{i+1}}</td>
+                    <td>{{gkk.itemname}}</td>
+                    <img src='data:{{a}};base64,{{gkk.itemimage}}' width="50" height="50">
+                    <td>{{gkk.price}}</td>  
+                    <td>{{gkk.description}}</td>
+                    <td>{{gkk.material}}</td>
+                    <td>{{gkk.colour}}</td>
+                    <td><button type="button" (click)="deleteitem(gkk.itemname)" class="btn btn-danger">delete</button></td>
+                  
+                  </tr>
+                  
+                </tbody>
+              </table>
+
+            </div>
+           </div>
+
+
+          -->
+         
+
+  
+
+        </div>
+    </body>
+    <router-outlet></router-outlet>
+</html>

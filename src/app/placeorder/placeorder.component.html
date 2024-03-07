@@ -1,0 +1,83 @@
+
+<html>
+    <head>
+      <style type = "text/css">
+         .summbox{
+            border:solid;
+            border-width:thin;
+            color: black;
+            height :500px;
+            width:600px;
+            
+         }
+       
+      </style>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <h4>Shipping Address</h4>
+                    <hr width="100%" size="4" >
+                
+                 
+                </div>
+               
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-3">
+                    Mobile No:<br>
+                    <input type="text" name ="mobile"  [(ngModel)]="mobile" class="form-control">   
+                    city:
+                    <input type="text" name="city" [(ngModel)]="city" class="form-control">
+                    Street:
+                    <input type="text" name="street" [(ngModel)]="street" class="form-control">
+                    Address:
+                    <input type="text" class="form-control" [(ngModel)]="address" height="900">
+
+                    <button type="button" (click)="placeorder()" class="btn btn-success mt-3" >Place Order</button>
+                </div>  
+                <div class="col-md-4">
+                    
+                </div>
+                <div class="col-md-5">
+                     <h3>Order Summary</h3>
+                       <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col" class="text-center">No</th>
+                            <th scope="col" class="text-center">Item Name</th>
+                            
+                            <th scope="col" class="text-center">Item Image</th>
+                            <th scope="col" class="text-center">Quantity</th>
+                            <th scope="col" class="text-center">Price</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="text-center" *ngFor="let gkk of docker; let i=index">
+                            <td>{{i+1}}</td>
+                            <td>{{gkk.itemname}}</td>
+                           
+                          <td><img src='data:{{a}};base64,{{gkk.itemimage}}' width="50" height="50"></td>
+                          
+                            <span id="quantity" >{{gkk.quantity}}</span>
+                            
+                            <td>{{ gkk.quantity > 1 ? gkk.updatedprice:gkk.price|currency:'INR'}}</td>
+                            
+                            
+                 
+                          </tr>
+                          
+                        </tbody>
+                      </table>
+                       
+                
+                   <h4>Total Amount:{{totalamount|currency:'INR'}}</h4>
+                  
+                  
+                </div>          
+            </div>
+           
+        </div>
+    </body>
+</html>

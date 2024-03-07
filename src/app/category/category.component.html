@@ -1,0 +1,46 @@
+<html>
+    <head>
+
+        <style>
+         .card{
+           display:inline-block;
+           
+            width: 300px;
+            height:380px ;
+            
+         }
+         img{
+            height:200px;
+            width:200px
+         }
+         h2{
+            text-align:center
+         }
+        
+         .touch-highlight:hover {
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+           transition: box-shadow 0.3s ease;
+         }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                    <p>{{loginname}}</p>
+                    <div class="card touch-highlight mt-3 mr-4" *ngFor="let item of ds">
+                        <div class="card-body">
+                          
+                           <h4>{{item.categoryname}}</h4>
+                           
+                           <img src='data:{{a}};base64,{{item.image}}' width="250" height="250">
+                            
+                           <button (click)="gotoproductdetails(item.categoryname)" type ="button" class="btn btn-primary mt-2 center" >goto</button>
+                        </div>
+
+                    </div>
+              </div>
+           </div>
+        </div>
+    </body>
+</html>

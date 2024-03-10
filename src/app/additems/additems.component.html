@@ -53,8 +53,8 @@
                                  <label for="type">Material</label>
                                  <input type="text"  class="form-control" name="typecategory" ngModel>
 
-                                 <label for="brand">Brand</label>
-                                 
+                                 <label for="mattresscategory">Mattress Category</label>
+                                 <input type="text"  class="form-control" name="mattresscategory" ngModel>
                                   
                                  <label for="mattressdeta">Mattress Details</label>
                                  <input type="text"  class="form-control" name="mattressdetails" ngModel>
@@ -82,10 +82,7 @@
                                   <div *ngIf="selectedCategory !== 'Mattress'">
                                   <label for="item name">Item name</label>
                                   <input type= "text" id ="ite" class="form-control"  name="itemname" ngModel>
-                                   
-                                  <label for="category">category</label>
-                                  <input type= "text"  class="form-control"  name="category" ngModel>
-
+                                
                                   <label for="image mt-2">Item image:</label><br>
                                   <input type="file" id ="imag" class="mb-3" (change)="addimage($event)"  name="itemimg"><br>
                             
@@ -139,7 +136,7 @@
               </div>
             </div>
 
-         <!--  <div class="row">
+          <div class="row">
             <div class="col-md-12 mt-5">
               <table class="table">
                 <thead>
@@ -155,7 +152,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="text-center" *ngFor="let gkk of allite; let i=index" >
+                  <tr class="text-center" *ngFor="let gkk of d; let i=index" >
                     <td>{{i+1}}</td>
                     <td>{{gkk.itemname}}</td>
                     <img src='data:{{a}};base64,{{gkk.itemimage}}' width="50" height="50">
@@ -174,7 +171,7 @@
            </div>
 
 
-          -->
+          
          
 
   

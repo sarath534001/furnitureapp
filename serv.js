@@ -170,7 +170,9 @@ app.put('/additem',upload.single('itemim'),(req,res)=>{
 app.delete("/deleteitemincategory/:id",(req,res)=>{
   console.log(req.params.id)
  run().then(y=>{
-   y.collection('category').updateMany({},{$pull:{items:{itemname:req.params.id}}})
+   y.collection('category').updateMany({},{$pull:{items:{itemname:req.params.id}}}).then(k=>{
+    console.log(k)
+   })
 
 
  })
@@ -603,7 +605,7 @@ app.post('/getallordersbyuser',(req,res)=>{
   let s=await y.collection('register').find({mobile:req.body.mobile},{projection:{orders:1,_id:0}}).toArray();
    res.json(s)
  })
-})
+})    
 
 
 
@@ -623,6 +625,9 @@ app.delete('/deleteuser/:mobile',(req,res)=>{
  
 })
  
+app.post('/kv',(req,res)=>{
+
+})
 
 app.post('/customerorders',(req,res)=>{
       let f=req.headers.authorization

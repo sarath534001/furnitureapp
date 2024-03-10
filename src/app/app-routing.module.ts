@@ -45,7 +45,6 @@ const routes: Routes = [{path:"",component:HomeComponent},
 {path:"springmattress",component:SpringmattressComponent},
 
 
-
 ];
 
 @NgModule({

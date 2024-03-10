@@ -10,6 +10,7 @@ export class AdditemsComponent {
   a:string="image/png";
     jg:any;
     allite:any;
+    d:any;
   mattressInputsVisible: boolean=false;
   selectedCategory: string = '';
    constructor(public http:HttpClient,public rout:Router){
@@ -20,7 +21,7 @@ export class AdditemsComponent {
         this.jg=phd.message
       console.log(this.jg)
     })
-
+    
     http.get('http://localhost:48/getallitems',{responseType:"text"}).subscribe(dp=>{
            let pg= JSON.parse(dp)
               this.allite=pg
@@ -31,8 +32,21 @@ export class AdditemsComponent {
 
  itemimage:any;
 
-  additem(data:any){
-   
+   additem(data:any){
+      console.log(data)
+
+      this.jg.forEach((y:any)=>{
+             
+               if(y.categoryname==data.name){
+                if(!y.items){
+                  y.items=[]
+                  y.items.push(data)
+                 }
+                 else{
+               y.items.push(data)
+                 }
+               }
+      })
       
       let formdata=new FormData();
       formdata.append('itemim',this.itemimage);
@@ -81,7 +95,16 @@ export class AdditemsComponent {
   }
 
   categorymeth(k:any){
-    console.log(k)
+   
+    this.jg.forEach((y:any)=>{
+          if(y.categoryname==k){
+           this.d= y.items
+          }
+    })
+
+    console.log(this.d)
   }
+
+
 
 }

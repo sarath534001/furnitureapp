@@ -647,6 +647,10 @@ app.post('/customerorders',(req,res)=>{
 
 })
 
+app.get('/yuo',function(req,res){
+
+})
+
 app.listen(48,(err)=>{
 
 if(err){

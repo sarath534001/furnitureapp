@@ -16,10 +16,13 @@ export class AddcategoryComponent {
   td:any;
   constructor(public http:HttpClient){
         http.get('http://localhost:48/getcategories',{responseType:"text"}).subscribe(u=>{
-                 
+                 try{
                   this.getcat=JSON.parse(u);   
+                  console.log(this.getcat.message,"hello")
+                 }
+                 catch(err){
                   
-                             
+                 }
         })
 
         

@@ -592,10 +592,12 @@ app.post('/orders',(req,res)=>{
 })
 
 app.get('/getallorders',(req,res)=>{
-  
+   let a=67
   run().then(async u=>{
    let y=  await u.collection('register').find({},{projection:{name:1,mobile:1,email:1,password:1}}).toArray();
    res.json(y)
+   // hello this comment is for test the git
+
   })
 })
 
@@ -647,6 +649,10 @@ app.post('/customerorders',(req,res)=>{
   })
    
  
+
+})
+
+app.get('/yuo',function(req,res){
 
 })
 

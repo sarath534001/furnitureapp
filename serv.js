@@ -627,9 +627,6 @@ app.delete('/deleteuser/:mobile',(req,res)=>{
  
 })
  
-app.post('/kv',(req,res)=>{
- //hello this is my name
-})
 
 app.post('/customerorders',(req,res)=>{
       let f=req.headers.authorization
@@ -653,7 +650,7 @@ app.post('/customerorders',(req,res)=>{
 })
 
 app.get('/yuo',function(req,res){
-
+  //hello iam changing to the hostel to home
 })
 
 app.listen(48,(err)=>{

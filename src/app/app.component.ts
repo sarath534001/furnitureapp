@@ -22,7 +22,8 @@ export class AppComponent {
   let test="sarath"
   this.test1=test
   this.loginname= this.dj.loginname2();
-  console.log(this.loginname)
+  console.log(this.loginname);
+  
  }
 
 
@@ -35,7 +36,8 @@ export class AppComponent {
  
    })
   }
-
+   
+  
   signout(){
     console.log("from signout")
     this.loggedin=false

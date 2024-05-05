@@ -27,6 +27,7 @@ import { FoammattressComponent } from './foammattress/foammattress.component';
 import { CoirmattessComponent } from './coirmattess/coirmattess.component';
 import { SpringmattressComponent } from './springmattress/springmattress.component';
 import { KurlonComponent } from './kurlon/kurlon.component';
+import { TestModule } from './test/test.module';
 
 
 @NgModule({
@@ -63,11 +64,20 @@ import { KurlonComponent } from './kurlon/kurlon.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    TestModule
 
   ],
-  
+  exports: [
+    
+    FooterComponent
+  ],
   providers: [ ],
     
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  ngOnInit(): void {
+    console.log('app module initialized'); // This message will be printed to the console when the component is initialized
+  }
+ }
